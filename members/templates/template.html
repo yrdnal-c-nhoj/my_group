@@ -1,6 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="{% static 'first.css' %}">
 <body>
+
+  <table border='1'>
+    <tr>
+      <th>ID</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+    </tr>
+    {% for x in mymembers %}
+      <tr>
+        <td>{{ x.id }}</td>
+          <td>{{ x.firstname }}</td>
+        <td>{{ x.lastname }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+
+    {% for x in fruits %}
+      <li>{{ forloop.revcounter }}</li>
+    {% endfor %}
+  </ul> 
+  <ul>
+    {% for x in fruits %}
+      <li>{{ forloop.counter0 }}</li>
+    {% endfor %}
+  </ul> 
+  <ul>
+    {% for x in fruits %}
+      <li
+        {% if forloop.first %}
+          style='background-color:lightblue;'
+        {% endif %}
+      >{{ x }}</li>
+    {% endfor %}
+  </ul> 
 
 {% for x in fruits %}
   <h1>{{ x }}</h1>
@@ -10,8 +47,28 @@
 
 <ul>
   {% for x in mymembers %}
-    <li>{{ x.firstname }}</li>
+    <li>{{ x.firstname }} &nbsp; {{ x.phone }}</li>
   {% endfor %}
+
+
+  {% for x in mymembers reversed %}
+  <h1>{{ x.id }}</h1>
+  <p>
+    {{ x.firstname }}
+    {{ x.lastname }}
+  </p>
+{% endfor %}  
+
+
+{% for x in mymembers %}
+<h1>{{ x.id }}</h1>
+<p>
+  {{ x.firstname }}
+  {{ x.lastname }}
+</p>
+{% endfor %}  
 </ul>
+
+
 </body>
 </html>

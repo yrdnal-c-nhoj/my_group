@@ -21,8 +21,18 @@ def details(request, id):
 def main(request):
   template = loader.get_template('members/main.html')
   return HttpResponse(template.render())
-   
+  
+  
+  
 def testing(request):
+  mydata = Member.objects.all()
+  template = loader.get_template('template.html')
+  context = {
+    'mymembers': mydata,
+  }
+  return HttpResponse(template.render(context, request))
+  
+""" def testing(request):
   mymembers = Member.objects.all().values()
   template = loader.get_template('template.html')
   context = {
@@ -30,4 +40,4 @@ def testing(request):
     'firstname': 'Jim',
     'mymembers': mymembers,
   }
-  return HttpResponse(template.render(context, request))
+  return HttpResponse(template.render(context, request)) """
