@@ -1,5 +1,6 @@
 body {
-    background-color: lightblue;
-    font-family: verdana;
+    background: white url("images/background.png") no-repeat;
+    background-color: rgb(255, 228, 217);
+    font-family: Franklin Gothic, News Gothic, Minion, Mrs Eaves, Rockwell, Georgia;
   }
-  
+ 
